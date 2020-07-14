@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+    <!-- <div class="all__top">
+        <img class="table__logo-top-l" src="{% static 'restaurants/images/FoodBrainers.png' %}" alt="">
+        <h2 class=all_h2>FOOD BRAINERS</h2>
+        <img class="table__logo-top-r" src="{% static 'restaurants/images/FoodBrainers.png' %}" alt="">
+    </div> -->
+
+
+<section class='all'>
+    <h3 class="all__box--h3">FoodBrainers</h3>
+    <div class="all__box">
+            {% for restaurant in restaurants %}
+
+                    <div class="all__small-box">
+                        <img src="{% static 'restaurants/images/food.png' %}" class="all__food-logo" alt="logo">
+                        <div class="all__container " >
+                            <div class="all__container-top">
+                                <a class="all__container-top--a" href="{% url 'restaurants:details' restaurant.id %}?address={{ address|urlencode }}">{{ restaurant.name }}</a>
+                            <a class= 'all__container-top--p' href="{% url 'restaurants:details' restaurant.id %}?address={{ address|urlencode }}">{{ restaurant.description }}</a>
+                            </div>
+                            <div class="all__container-down">
+                                <div class="all__container-down--small">
+                                    <p class="all__container-down--small-p">Kuchnia</p>
+                                    <p class="all__container-down--small-pp">
+                                        {{ restaurant.cuisines.all|join:', ' }}
+                                    </p>
+
+                                </div>
+                                <div class="all__container-down--small">
+                                        <p class="all__container-down--small-p">Godziny otwarcia</p>
+                                        <p class="all__container-down--small-pp">{{ restaurant.opening_hours }}</p>
+
+                                </div>
+
+                                <div class="all__container-down--small">
+                                    <p class="all__container-down--small-p">Odległość</p>
+                                    <p class="all__container-down--small-pp">{{ restaurant.distance|floatformat:1  }} km</p>
+                                </div>
+                                <div class="all__container-down--small">
+                                    <p class="all__container-down--small-p">Współrzędne</p>
+                                    <p class="all__container-down--small-pp">{{ restaurant.latitude }},
+                                        {{ restaurant.longitude }}</p>
+
+                                </div>
+
+                                <div class="all__container-down--small">
+                                    <p class="all__container-down--small-p">Koszt dostawy</p>
+                                    <p class="all__container-down--small-pp">{{ restaurant.delivery_cost|floatformat:0 }} zł</p>
+
+                                </div>
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <!-- do wyswietlania z bazy danych podwojna klamerka!! -->
+                    <!-- name itd z modelu klasy Restaurant -->
+                    <!--  -->
+
+
+
+
+
+            {% endfor %}
+
+    </div>
+
+</section>
+{% endblock %}

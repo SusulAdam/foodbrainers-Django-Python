@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<section class="all">
+    <h3 class="all__box--h3 text-align cart">Twój koszyk</h3>
+
+
+    <div class="all__box cart">
+        {% for entry in cart %}
+        <div class="all__small-box cart-small">
+            <div class="all__container">
+                <div class="all__container-top">
+                    <p class="all__container-top-detial--h7">{{ entry.restaurant }}</p>
+                    <p class="all__container-top-detial--p">{{ entry.course }}</p>
+
+                    <div class="all__container-down">
+
+                        <div class="all__container-down--small padding0 ">
+                            <p class="all__container-down--small-p">Ilość</p>
+                            <p class="all__container-down--small-pp">
+                                {{ entry.quantity }}
+                            </p>
+                        </div>
+
+                        <div class="all__container-down--small padding0">
+                            <p class="all__container-down--small-p">Cena</p>
+                            <p class="all__container-down--small-pp">
+                                {{ entry.amount }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h3 class="all__box--h3 text-align cart-down"><a class="all__cart-down--a" href="{% url 'restaurants:all' %}?address={{ address|urlencode }}">Kontynuj zakupy</a></h3>
+
+    <div class="all__summary">
+
+        <p class ="all__summary--p">Suma:</p>
+        <p class ="all__summary--p">{{ order_amount }}</p>
+        <a class="all__summary--a" href="{% url 'restaurants:create_order' %}?address={{ address|urlencode }}">Złóż zamówienie</a>
+    </div>
+
+
+
+
+        <!-- <tr>
+
+            <th>Liczba</th>
+            <th>Kwota</th>
+        </tr>  -->
+
+
+        <tr>
+
+
+
+
+        </tr>
+
+
+
+
+
+
+
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="create-order">
+
+    <div class="create-order__container">
+        <h3 class="create-order__container-h3">Twoje zamówienie to:</h3>
+
+        <form method="POST" action="{% url 'restaurants:create_order' %}?address={{ address|urlencode }}">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+
+
+
+    </div>
+    <input class="create-order-input" type="submit" value="Złóż zamówienie">
+
+</form>
+
+</div>
+{% endblock %}

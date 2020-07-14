@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load static %}
+<section class="driver">
+
+    <div class="driver__container">
+        <div class="driver__border"></div>
+        <h1>Zamów już teraz!</h1>
+
+        <form class='driver__main-form' method="GET" action="{% url 'restaurants:all' %}">
+            <!-- <p>
+                <label class='driver__form--label' for="id_latitude">Latitude:</label>
+                <input class='driver__form--input' type="number" name='latitude' value="50.05" id="id_latitude">
+            </p>
+            <p>
+                <label class='driver__form--label' for="id_longitude">Longitude:</label>
+                <input class='driver__form--input' type="number" name='longitude' value="20.0" id="id_longitude">
+            </p> -->
+
+            <div class="form__group">
+                {{ form.address.label }}: {{ form.address }}
+            </div>
+
+            <input class='driver__form--btn' type="submit" value="Szukaj restauracji">
+        </form>
+        <img src="{% static 'restaurants/images/FoodBrainers.png' %}" class="driver__black-logo" alt="logo">
+    </div>
+
+
+    <svg class='driver__curved' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#121618" fill-opacity="1"
+            d="M0,96L80,112C160,128,320,160,480,154.7C640,149,800,107,960,101.3C1120,96,1280,128,1360,144L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+        </path>
+    </svg>
+
+
+    <h2>Czy wiesz, że?</h2>
+
+</section>
+
+<section class='tip'>
+    <div class="tip__p-container">
+        <p class="tip__p">Foodbrainers wyznacza nowy trend wśród aplikacji delivery food? </p>
+        <p class="tip__p center">Na co czekasz!</p>
+
+        <div class="tip__steps">
+            <div class="tip__step">
+                <i class="fas fa-map-marked-alt"></i>
+                <p class="tip__step-p">Wpisz swoją lokalizację</p>
+            </div>
+
+            <div class="tip__step">
+                <i class="fas fa-utensils"></i>
+                <p class="tip__step-p">Wybierz restauracje</p>
+            </div>
+
+            <div class="tip__step">
+                <i class="fas fa-pizza-slice"></i>
+                <p class="tip__step-p" style="width: 80px;">Wybierz posiłek</p>
+            </div>
+
+            <div class="tip__step">
+                <i class="fas fa-truck"></i>
+                <p class="tip__step-p">Poczekaj na dostawę!</p>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+
+<section class="slider">
+    .slider__te
+    <h3 class="slider__h3">Nowe restauracje!</h3>
+    <p class="slider__p-main">sprawdz już dzis...</p>
+
+    <div class="slider_box">
+        <div class="slider__big-container">
+            <i class="fas fa-arrow-circle-right arrow" ></i>
+            <i class="fas fa-arrow-circle-left arrow"  ></i>
+            <div class="slider__container">
+                <div class="slider__puictures">
+
+                    <div class="slider__puicture">
+                        <img src="{% static 'restaurants/images/Sushi_Craft.JPG' %}" id="#lastClone" class="last" alt="Sushi_Craft">
+                        <p class="slider__p">Sushi Craft</p>
+                    </div>
+                    <div class="slider__puicture">
+                        <img src="{% static 'restaurants/images/Pieprz_i_Wanilia.jpg' %}" alt="Pieprz_i_Wanilia">
+                        <p class="slider__p" >Pieprz i Wanilia</p>
+                    </div>
+                    <div class="slider__puicture">
+                        <img src="{% static 'restaurants/images/pizzeria-cyklop.png' %}" alt="pizzeria-cyklop">
+                        <p class="slider__p" >Pizzeria Cyklop</p>
+                    </div>
+                    <div class="slider__puicture">
+                        <img src="{% static 'restaurants/images/Sushi_Craft.JPG' %}" alt="Sushi_Craft">
+                        <p class="slider__p" >Sushi Craft</p>
+                    </div>
+                    <div class="slider__puicture">
+                        <img src="{% static 'restaurants/images/Pieprz_i_Wanilia.jpg' %}" id="#firstClone" class="first" alt="Pieprz_i_Wanilia">
+                        <p class="slider__p" >Pieprz i Wanilia</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="main-end">
+    <div class="main-end__container">
+        <div class='main-end__top'>
+            <div class="main-end__box">
+                <h5 class="main-end__box-h5">FoodBrainers</h5>
+                <img src="{% static 'restaurants/images/FoodBrainers1.png' %}" class="main-end__box-img" alt="logo">
+            </div>
+            <div class="main-end__box after">
+                <h5 class="main-end__box-h5">O nas:</h5>
+                <ul class="main-end__box-ul">
+                    <li class="main-end__box-li">Szybko</li>
+                    <li class="main-end__box-li">Wygodnie</li>
+                    <li class="main-end__box-li">Bez ukrytych opłat</li>
+                </ul>
+
+            </div>
+
+            <div class="main-end__box after">
+                <h5 class="main-end__box-h5">Kontakt:</h5>
+                <a class="main-end__box-a" href="#"><i class="fab fa-facebook-square"></i></a>
+                <a class="main-end__box-a" href="#"><i class="fab fa-instagram"></i></a>
+                <a class="main-end__box-a" href="#"><i class="fab fa-linkedin"></i></a>
+                <a class="main-end__box-a" href="#"><i class="fab fa-twitter-square"></i></a>
+                <a class="main-end__box-a" href="#"><i class="fab fa-pinterest-square"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class='main-end__bottom'>
+        <div class="main-end__bottom-box">
+            <p class="main-end__bottom-box-p">© 2020 FoodBrainers. All Rights Reserved.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

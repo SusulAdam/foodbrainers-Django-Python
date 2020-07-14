@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodBrainers &bull; {{ title }}</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'restaurants/style.css'  %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.css' %}">
+</head>
+
+<body>
+    <nav class='navigation'>
+        <div class="navigation__box">
+            <div class="navigation__container">
+
+
+                <div class="navigation__log--space-between">
+                    <a class="navigation__log--main " href="{% url 'restaurants:main' %}?address={{ address|urlencode }}">Powrót </a>
+                    {% if user.is_authenticated %}
+                    Witaj {{ user.first_name }}!
+
+                    <a class="navigation__log" href="{% url 'logout' %}">wyloguj się</a>
+                </div>
+                {% else %}
+                <div class="navigation__log--flex-end">
+                    <a class="navigation__log" href="{% url 'login' %}" >zaloguj się</a>
+                </div>
+                {% endif %}
+
+                <!-- w django, jesli chcemy sie dostac do slownika to trzeba sie doiego dostac po kropce -->
+
+            </div>
+            <div class="navigation__small-box">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="navigation__order--end">
+                    <a class="navigation__order" href="{% url 'restaurants:cart' %}?address={{ address|urlencode }}">Koszyk: {{ request.session.cart|length }}</a>
+                </div>
+
+
+            </div>
+
+
+          </div>
+
+
+
+    </nav>
+    <main class="base">
+
+
+        {% block content %}
+        {% endblock %}
+        <div class="base__layer"></div>
+    </main>
+
+
+    <script src="{% static 'restaurants/main.js'  %}"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhNklsfULaLf2Fy90GfN2iow3wq09XCYc&callback=initMap">
+    </script>
+
+
+</body>
+
+</html>
