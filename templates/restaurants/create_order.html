@@ -8,9 +8,9 @@
     <div class="create-order__container">
         <h3 class="create-order__container-h3">Twoje zamówienie to:</h3>
 
-        <form method="POST" action="{% url 'restaurants:create_order' %}?address={{ address|urlencode }}">
+        <form class="create-order__form" method="POST" action="{% url 'restaurants:create_order' %}?address={{ address|urlencode }}">
             {% csrf_token %}
-            <table>
+            <table class="create-order__table">
                 {{ form.as_table }}
             </table>
 

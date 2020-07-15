@@ -5,7 +5,7 @@
 
 <section class='all'>
     <h3 class="all__box--h3 text-align">{{ restaurant.name }}
-        <p class='all__box--h3-p'>{{ restaurant.description }}</p>
+        <p class='all__box--h3-p detial-p-media'>{{ restaurant.description }}</p>
     </h3>
     <!-- nazwa z context_object_name -->
 
@@ -29,14 +29,14 @@
                         <p class="all__container-top-detial-h6">{{ course.name }}</p>
                         <p class="all__container-top-detial--p">{{ course.description }}</p>
                         <div class="all__container-down">
-                            <div class="all__container-down--small">
+                            <div class="all__container-down--small detial__small--container">
                                 <p class="all__container-down--small-p">Cena</p>
                                 <p class="all__container-down--small-pp">
                                     {{ course.price }}
                                 </p>
                             </div>
 
-                            <div class="all__container-down--small">
+                            <div class="all__container-down--small detial__small--container">
                                 <p class="all__container-down--small-p">Ostre?</p>
                                 <p class="all__container-down--small-pp">
                                     {{ course.is_spicy|yesno }}
@@ -44,21 +44,21 @@
 
                             </div>
 
-                            <div class="all__container-down--small">
+                            <div class="all__container-down--small detial__small--container">
                                 <p class="all__container-down--small-p">Vegańskie?</p>
                                 <p class="all__container-down--small-pp">
                                     {{ course.is_vegan|yesno }}
                                 </p>
 
                             </div>
-                            <div class="all__container-down--small">
+                            <div class="all__container-down--small detial__small--container">
                                 <p class="all__container-down--small-p">Gluten?</p>
                                 <p class="all__container-down--small-pp">
                                     {{ course.is_glutenfree|yesno }}
                                 </p>
                             </div>
 
-                            <div class="all__container-down--small">
+                            <div class="all__container-down--small detial__small--container">
                                 <p class="all__container-down--small-pp">
                                     <a class = "all__container-down--shoppig" href="{% url 'restaurants:add_to_cart' course.pk %}?next={{ request.get_full_path }}">Dodaj do koszyka</a>
                                 </p>
