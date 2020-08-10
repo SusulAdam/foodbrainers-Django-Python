@@ -66,22 +66,41 @@ slider.addEventListener('transitionend', () => {
 
 );
 
-// Api Map
+// Api Map Google map
 
-function initMap() {
-    let latitude = JSON.parse(document.getElementById('lat').textContent);
-    let logitude = JSON.parse(document.getElementById('lng').textContent);
-    var options = {
+// function initMap() {
+//     let latitude = JSON.parse(document.getElementById('lat').textContent);
+//     let logitude = JSON.parse(document.getElementById('lng').textContent);
+//     var options = {
 
-        zoom: 14,
-        center: {
-            lat: latitude, lng: logitude
-        }
-    }
-    var map = new google.maps.Map(document.getElementById('map'), options);
+//         zoom: 14,
+//         center: {
+//             lat: latitude, lng: logitude
+//         }
+//     }
+//     var map = new google.maps.Map(document.getElementById('map'), options);
 
-    var marker = new google.maps.Marker({
-        position: { lat: latitude, lng: logitude },
-        map: map
-    })
-}
+//     var marker = new google.maps.Marker({
+//         position: { lat: latitude, lng: logitude },
+//         map: map
+//     })
+// }
+
+// Leaflet Map
+// let latitude = JSON.parse(document.getElementById('lat').textContent);
+// let logitude = JSON.parse(document.getElementById('lng').textContent);
+
+
+mymap = L.map('map', {
+    center: [50.061603, 19.936591],
+    zoom: 13,
+    attributionControl: false
+});
+
+lyrOSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+//displaying the map in the browser
+mymap.addLayer(lyrOSM);
+
+L.marker([50.061603, 19.936591]).addTo(mymap);
+scale = L.control.scale({ imperial: false }).addTo(mymap);
+scale = L.control.scale({ imperial: false }).addTo(mymap);

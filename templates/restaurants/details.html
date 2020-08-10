@@ -7,83 +7,83 @@
     <h3 class="all__box--h3 text-align">{{ restaurant.name }}
         <p class='all__box--h3-p detial-p-media'>{{ restaurant.description }}</p>
     </h3>
-    <!-- nazwa z context_object_name -->
 
-    <!-- description z models -->
-
-    <!--Dorobic pozsotałe pola kuchnia, godziny otwarcia itp-->
-
-    <!-- mapa z lokalizacja? -->
-    <div  id='map'></div>
+    <div id="map"></div>
     <p>{{ restaurant.latitude|json_script:"lat" }}</p>
     <p>{{ restaurant.longitude|json_script:"lng" }}</p>
 
-        <div class='all__box detial'>
+    <div class='all__box detial'>
 
 
-            {% for course in restaurant.menu.all %}
-            <div class="all__small-box detial-small">
+        {% for course in restaurant.menu.all %}
+        <div class="all__small-box detial-small">
 
-                <div class="all__container">
-                    <div class="all__container-top">
-                        <p class="all__container-top-detial-h6">{{ course.name }}</p>
-                        <p class="all__container-top-detial--p">{{ course.description }}</p>
-                        <div class="all__container-down">
-                            <div class="all__container-down--small detial__small--container">
-                                <p class="all__container-down--small-p">Cena</p>
-                                <p class="all__container-down--small-pp">
-                                    {{ course.price }}
-                                </p>
-                            </div>
+            <div class="all__container">
+                <div class="all__container-top">
+                    <p class="all__container-top-detial-h6">{{ course.name }}</p>
+                    <p class="all__container-top-detial--p">{{ course.description }}</p>
+                    <div class="all__container-down">
+                        <div class="all__container-down--small detial__small--container">
+                            <p class="all__container-down--small-p">Cena</p>
+                            <p class="all__container-down--small-pp">
+                                {{ course.price }}
+                            </p>
+                        </div>
 
-                            <div class="all__container-down--small detial__small--container">
-                                <p class="all__container-down--small-p">Ostre?</p>
-                                <p class="all__container-down--small-pp">
-                                    {{ course.is_spicy|yesno }}
-                                </p>
-
-                            </div>
-
-                            <div class="all__container-down--small detial__small--container">
-                                <p class="all__container-down--small-p">Vegańskie?</p>
-                                <p class="all__container-down--small-pp">
-                                    {{ course.is_vegan|yesno }}
-                                </p>
-
-                            </div>
-                            <div class="all__container-down--small detial__small--container">
-                                <p class="all__container-down--small-p">Gluten?</p>
-                                <p class="all__container-down--small-pp">
-                                    {{ course.is_glutenfree|yesno }}
-                                </p>
-                            </div>
-
-                            <div class="all__container-down--small detial__small--container">
-                                <p class="all__container-down--small-pp">
-                                    <a class = "all__container-down--shoppig" href="{% url 'restaurants:add_to_cart' course.pk %}?next={{ request.get_full_path }}">Dodaj do koszyka</a>
-                                </p>
-                                <p class="all__container-down--small-pp">
-                                    <a class = "all__container-down--shoppig trolley" href="{% url 'restaurants:add_to_cart' course.pk %}?next={{ request.get_full_path }}"><i class="fas fa-shopping-cart"></i></a>
-                                </p>
-
-                            </div>
-
+                        <div class="all__container-down--small detial__small--container">
+                            <p class="all__container-down--small-p">Ostre?</p>
+                            <p class="all__container-down--small-pp">
+                                {{ course.is_spicy|yesno }}
+                            </p>
 
                         </div>
 
+                        <div class="all__container-down--small detial__small--container">
+                            <p class="all__container-down--small-p">Vegańskie?</p>
+                            <p class="all__container-down--small-pp">
+                                {{ course.is_vegan|yesno }}
+                            </p>
+
+                        </div>
+                        <div class="all__container-down--small detial__small--container">
+                            <p class="all__container-down--small-p">Gluten?</p>
+                            <p class="all__container-down--small-pp">
+                                {{ course.is_glutenfree|yesno }}
+                            </p>
+                        </div>
+
+                        <div class="all__container-down--small detial__small--container">
+                            <p class="all__container-down--small-pp">
+                                <a class="all__container-down--shoppig"
+                                    href="{% url 'restaurants:add_to_cart' course.pk %}?next={{ request.get_full_path }}">Dodaj
+                                    do koszyka</a>
+                            </p>
+                            <p class="all__container-down--small-pp">
+                                <a class="all__container-down--shoppig trolley"
+                                    href="{% url 'restaurants:add_to_cart' course.pk %}?next={{ request.get_full_path }}"><i
+                                        class="fas fa-shopping-cart"></i></a>
+                            </p>
+
+                        </div>
+
+
                     </div>
+
                 </div>
             </div>
-
-            {% endfor %}
-
-
-
         </div>
 
-            <h3 class="all__box--h3 text-align detail-down"><a class="all__cart-down--a" href="{% url 'restaurants:all' %}?address={{ address|urlencode }}">Kontynuj zakupy</a></h3>
+        {% endfor %}
 
-        <h3 class="all__box--h3 text-align detail-down-a"><a class="all__cart-down--a" href="{% url 'restaurants:cart' %}?address={{ address|urlencode }}">Przejdz do koszuka</a></h3>
+
+
+    </div>
+
+    <h3 class="all__box--h3 text-align detail-down"><a class="all__cart-down--a"
+            href="{% url 'restaurants:all' %}?address={{ address|urlencode }}">Kontynuj zakupy</a></h3>
+
+    <h3 class="all__box--h3 text-align detail-down-a"><a class="all__cart-down--a"
+            href="{% url 'restaurants:cart' %}?address={{ address|urlencode }}">Przejdz do koszuka</a></h3>
 
 </section>
 
