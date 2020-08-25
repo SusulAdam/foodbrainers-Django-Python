@@ -8,7 +8,7 @@
     <div class="driver__container">
         <div class="driver__border"></div>
         <h1>Zamów już teraz!</h1>
-
+        <div id="map"></div>
         <form class='driver__main-form' method="GET" action="{% url 'restaurants:all' %}">
             <!-- <p>
                 <label class='driver__form--label' for="id_latitude">Latitude:</label>
@@ -81,30 +81,32 @@
 
     <div class="slider_box">
         <div class="slider__big-container">
-            <i class="fas fa-arrow-circle-right arrow" ></i>
-            <i class="fas fa-arrow-circle-left arrow"  ></i>
+            <i class="fas fa-arrow-circle-right arrow"></i>
+            <i class="fas fa-arrow-circle-left arrow"></i>
             <div class="slider__container">
                 <div class="slider__puictures">
 
                     <div class="slider__puicture">
-                        <img src="{% static 'restaurants/images/Sushi_Craft.JPG' %}" id="#lastClone" class="last" alt="Sushi_Craft">
+                        <img src="{% static 'restaurants/images/Sushi_Craft.JPG' %}" id="#lastClone" class="last"
+                            alt="Sushi_Craft">
                         <p class="slider__p">Sushi Craft</p>
                     </div>
                     <div class="slider__puicture">
                         <img src="{% static 'restaurants/images/Pieprz_i_Wanilia.jpg' %}" alt="Pieprz_i_Wanilia">
-                        <p class="slider__p" >Pieprz i Wanilia</p>
+                        <p class="slider__p">Pieprz i Wanilia</p>
                     </div>
                     <div class="slider__puicture">
                         <img src="{% static 'restaurants/images/pizzeria-cyklop.png' %}" alt="pizzeria-cyklop">
-                        <p class="slider__p" >Pizzeria Cyklop</p>
+                        <p class="slider__p">Pizzeria Cyklop</p>
                     </div>
                     <div class="slider__puicture">
                         <img src="{% static 'restaurants/images/Sushi_Craft.JPG' %}" alt="Sushi_Craft">
-                        <p class="slider__p" >Sushi Craft</p>
+                        <p class="slider__p">Sushi Craft</p>
                     </div>
                     <div class="slider__puicture">
-                        <img src="{% static 'restaurants/images/Pieprz_i_Wanilia.jpg' %}" id="#firstClone" class="first" alt="Pieprz_i_Wanilia">
-                        <p class="slider__p" >Pieprz i Wanilia</p>
+                        <img src="{% static 'restaurants/images/Pieprz_i_Wanilia.jpg' %}" id="#firstClone" class="first"
+                            alt="Pieprz_i_Wanilia">
+                        <p class="slider__p">Pieprz i Wanilia</p>
                     </div>
 
                 </div>

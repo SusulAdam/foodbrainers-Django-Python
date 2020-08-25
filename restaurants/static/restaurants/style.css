@@ -1289,8 +1289,9 @@ h2 {
     top: 75%;
     height: 20%;
     width: 350px;
-    z-index: 10000000000;
+    z-index: 10000000;
     border-radius: 20px;
+
 }
 
 /* cart */

@@ -27,6 +27,7 @@
 
 <body>
     <nav class='navigation'>
+
         <div class="navigation__box">
             <div class="navigation__container">
 
@@ -75,11 +76,18 @@
 
 
         {% block content %}
+
         {% endblock %}
         <div class="base__layer"></div>
     </main>
 
-    <script src="{% static 'leaflet/leaflet-src.js'  %}"></script>
+
+
+    <!-- Put your map key to the link to shows map -->
+    <!-- <script
+    src="https://maps.googleapis.com/maps/api/js?key=YOURKEY">
+    </script> -->
+
 
     <script src="{% static 'restaurants/main.js'  %}"></script>
 

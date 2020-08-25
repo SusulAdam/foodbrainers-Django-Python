@@ -66,6 +66,9 @@ slider.addEventListener('transitionend', () => {
 
 );
 
+
+// Delete coments to show a map (and put your key map to the base html in script)
+
 // Api Map Google map
 
 // function initMap() {
@@ -86,21 +89,3 @@ slider.addEventListener('transitionend', () => {
 //     })
 // }
 
-// Leaflet Map
-// let latitude = JSON.parse(document.getElementById('lat').textContent);
-// let logitude = JSON.parse(document.getElementById('lng').textContent);
-
-
-mymap = L.map('map', {
-    center: [50.061603, 19.936591],
-    zoom: 13,
-    attributionControl: false
-});
-
-lyrOSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-//displaying the map in the browser
-mymap.addLayer(lyrOSM);
-
-L.marker([50.061603, 19.936591]).addTo(mymap);
-scale = L.control.scale({ imperial: false }).addTo(mymap);
-scale = L.control.scale({ imperial: false }).addTo(mymap);
