@@ -154,6 +154,14 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
+
+@media (max-width: 990px) {
+    .driver__curved {
+        top: 86%;
+
+    }
+}
+
 @media (max-width: 930px) {
     .driver__curved {
         top: 83%;
