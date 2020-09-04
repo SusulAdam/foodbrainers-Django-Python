@@ -17,54 +17,62 @@ window.addEventListener('scroll', function () {
 }
 
 ) // Slider
-const slider = document.querySelector('.slider__puictures');
-const sliderImages = document.querySelectorAll('.slider__puicture img');
-const prevBtn = document.querySelector('.fa-arrow-circle-left');
-const nextBtn = document.querySelector('.fa-arrow-circle-right');
 
-let counter = 1;
 
-const size = sliderImages[0].clientWidth;
+mainSlider = () => {
 
-slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    const slider = document.querySelector('.slider__puictures');
+    const sliderImages = document.querySelectorAll('.slider__puicture img');
+    const prevBtn = document.querySelector('.fa-arrow-circle-left');
+    const nextBtn = document.querySelector('.fa-arrow-circle-right');
 
-//Button Lisiners
+    let counter = 1;
 
-nextBtn.addEventListener('click', () => {
-    if (counter >= sliderImages.length - 1) return;
-    slider.style.transition = "transform 0.3s ease-in-out";
-    counter++;
-    slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
-}
-
-);
-
-prevBtn.addEventListener('click', () => {
-    if (counter <= 0) return;
-    slider.style.transition = "transform 0.3s ease-in-out";
-    counter--;
+    const size = sliderImages[0].clientWidth;
 
     slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
-}
 
-);
+    //Button Lisiners
 
-slider.addEventListener('transitionend', () => {
-
-    if (sliderImages[counter].classList == 'last') {
-        slider.style.transition = "none";
-        counter = sliderImages.length - 2;
+    nextBtn.addEventListener('click', () => {
+        if (counter >= sliderImages.length - 1) return;
+        slider.style.transition = "transform 0.3s ease-in-out";
+        counter++;
         slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
     }
 
-    if (sliderImages[counter].classList == 'first') {
-        slider.style.transition = "none";
-        counter = sliderImages.length - counter;
+    );
+
+    prevBtn.addEventListener('click', () => {
+        if (counter <= 0) return;
+        slider.style.transition = "transform 0.3s ease-in-out";
+        counter--;
+
         slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
     }
+
+    );
+
+    slider.addEventListener('transitionend', () => {
+
+        if (sliderImages[counter].classList == 'last') {
+            slider.style.transition = "none";
+            counter = sliderImages.length - 2;
+            slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        }
+
+        if (sliderImages[counter].classList == 'first') {
+            slider.style.transition = "none";
+            counter = sliderImages.length - counter;
+            slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        }
+    }
+
+    );
+
 }
 
-);
+document.addEventListener('DOMContentLoaded', mainSlider)
 
 
 // Delete coments to show a map (and put your key map to the base html in script)
