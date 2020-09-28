@@ -20,6 +20,6 @@ Projects are created with:
 
 ## Run Application
 
-To run application you can enter on the [website:]
+To run application you can enter on the 
 (https://bref-monsieur-61565.herokuapp.com/)
 or dowland project and write in the terminal "python manage.py runserver"
